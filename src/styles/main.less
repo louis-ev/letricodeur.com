@@ -1,0 +1,708 @@
+
+/***
+
+	Styles pour letricodeur.com
+	— par Louis Eveillard
+
+	Base de départ : html5bp.com
+
+***/
+
+@import  "plugins.less";
+
+/*
+	Dark green: #09606F
+	Light green: #7DC1C8
+	Light gray: #ECECEE
+	Red: #ff2719
+*/
+
+// "ratio-display"
+// "ratio"
+
+@cdgreen: #09606F;
+@clgreen: #7DC1C8;
+@clgray: #ECECEE;
+@cred: #ff2719;
+
+@cyello: #e7e63f;
+
+@phone-only:    ~"only screen and (max-width: 767px)";
+@tablet:    ~"only screen and (min-width: 768px)";
+@tablet-only:    ~"only screen and (max-width: 1024px)";
+@desktop:    ~"only screen and (min-width: 1025px)";
+@ldesktop:    ~"only screen and (min-width: 1250px)";
+
+
+.ratio {
+	font-family: "ratio",sans-serif;
+	font-style: normal;
+	font-weight: 400;
+}
+.ratio_bold {
+	font-family: "ratio",sans-serif;
+	font-style: normal;
+	font-weight: 700;
+}
+
+.ratio_display {
+	font-family: "ratio-display",sans-serif;
+	font-style: normal;
+	font-weight: 700;
+	letter-spacing: 0.2px;
+}
+.ratio_display_bold {
+	font-family: "ratio-display",sans-serif;
+	font-style: normal;
+	font-weight: 700;
+	letter-spacing: 0.2px;
+}
+
+body {
+	font-family: "ratio",sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 24px;
+	color: #333333;
+	padding-top:0px;
+	padding-bottom:0px;
+	margin: 0;
+}
+
+p {
+	font-size: 18px;
+	line-height: 24px;
+}
+
+body em {
+	font-style: normal;
+	color: #7DC1C8;
+}
+
+a {
+	color: #333;
+	text-decoration: none;
+	border-bottom: 1px solid black;
+
+}
+
+a:hover {
+	text-decoration: none;
+	color:white;
+	background-color: #333;
+}
+a:focus {
+	border: 1px solid black;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	outline: thin black;
+}
+
+h1,h2,h3 {
+	font-size: 18px;
+	line-height: 1.4;
+	font-family: "ratio";
+	font-weight: normal;
+	margin: 0;
+	margin-bottom: 15px;
+}
+
+h3 {
+	.ratio_bold;
+}
+
+.conteneur {
+	width:80%;
+	margin:auto;
+}
+
+
+
+
+.infobox {
+
+	position: relative;
+	z-index: 1;
+	box-shadow: inset 0 0 150px -30px #000;
+	overflow: hidden;
+
+	.full-height {
+		height: 768px;
+		position: relative;
+		max-height: 1400px;
+
+		@media @desktop {
+			height: 100vh;
+		}
+	}
+	.sticktobottom {
+		position: absolute;
+		top: 5%;
+		width: 100%;
+	}
+}
+
+
+
+
+
+.flexslider .slides > li:first-child {display: block;}
+
+.flexslider .slides img {
+
+	width: 100%;
+	height: auto;
+}
+
+@media (min-width: 1025px) {
+	.flexslider .slides img {
+		min-height: 100vh;
+		min-width: 100vw;
+	}
+}
+
+
+.flex-viewport {
+
+}
+
+.flex-control-nav {
+}
+
+.flex-control-nav li {
+	display: block;
+	margin-bottom: 10px;
+}
+
+.flex-control-paging {
+
+	top: 35px;
+	left: 10%;
+	width: 200px;
+	height: 20px;
+	text-align: left;
+	z-index: 10;
+
+	li {
+		display: inline-block;
+		a {
+			background-color: #fff;
+			box-shadow: none;
+			margin: 0;
+			width: 10px;
+			height: 10px;
+			border-radius: 5px;
+			border-color: transparent;
+			-webkit-box-shadow: none;
+			-moz-box-shadow: none;
+			box-shadow: none;
+
+			&.flex-active {
+				background: @clgreen;
+			}
+			&:hover {
+				background: @cdgreen;
+			}
+		}
+	}
+}
+
+@media (max-width: 992px) {
+	.navbar-default .navbar-nav>li>a {
+		padding-right: 5px;
+		padding-left: 15px;
+	}
+}
+
+@media @phone-only {
+}
+
+
+.flexslider {
+	border:none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	margin:0;
+	height: 100%;
+	background-color: #000;
+
+	@media @tablet-only {
+		display: none;
+	}
+}
+
+
+.flexcontainer {
+	position: absolute;
+	top:0;
+	width: 100%;
+	height: 768px;
+	overflow: hidden;
+	background-image: url("../images/sprites/trame-noir.png");
+	background-color: #333;
+	background-repeat: repeat;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	z-index: 0;
+	min-height: 400px;
+	max-height: 1400px;
+
+	@media @tablet-only {
+		background-image: url("../images/2014-08-31-alphabet-complet/tricodeur-alphabet-6.jpg");
+		background-size: cover;
+		background-position: 50% 50%;
+	}
+
+	@media @desktop {
+		height: 100vh;
+	}
+}
+
+@media (min-width: 1025px) {
+	.infobox {
+		pointer-events: none;
+		.full-height {
+		}
+		.sticktobottom {
+			position: absolute;
+			bottom: ~"calc(50% - 160px)";
+			top: auto;
+			pointer-events: auto;
+		}
+	}
+
+}
+
+
+@media @phone-only {
+	.sticktobottom {
+		top:0;
+	}
+}
+
+
+h1 {
+	color: #333333;
+
+}
+
+h2 {
+	font-family: "ratio-display";
+	font-size: 24px;
+	color: #333333;
+	font-weight: 600;
+
+}
+ul {
+	list-style-type: circle;
+	padding-left: 20px;
+}
+
+
+.titrePage {
+
+	max-width: 600px;
+	margin-bottom: 40px;
+	transition: text-shadow 1s ease-in-out;
+
+	&.away {
+		color: @clgray;
+		text-shadow: none;
+	}
+
+	h1 {
+		font-family: "ratio";
+		font-weight: 300;
+		font-style: italic;
+		color: #fff;
+		font-size: 84px;
+		text-shadow: 1px 1px 5px rgba(0,0,0, 1);
+		margin-bottom: 0px;
+
+		@media @phone-only {
+			font-size: 44px;
+		}
+	}
+	.tagline {
+		display: block;
+		font-style: normal;
+		font-weight: 700;
+		font-size: 52px;
+		line-height: 1.4;
+		color: #fff;
+		margin-top: 0px;
+
+		@media @phone-only {
+			font-size: 38px;
+		}
+	}
+
+
+}
+
+
+.pleasescroll {
+    position: absolute;
+    bottom: 0;
+    pointer-events: auto;
+    list-style: none;
+	padding: 0;
+	width: 100%;
+
+    transition: opacity 1s;
+
+
+    li {
+    	display: inline-block;
+    	color:#fff;
+    	margin-right: 22px;
+
+		@media @phone-only {
+			margin-right: 11px;
+			display: block;
+			&.arrowdown {
+				display: none;
+			}
+
+		}
+
+    	a {
+    		color: #fff;
+    		border-color: #fff;
+    		padding:1px;
+    		text-decoration: none;
+			text-shadow: 1px 1px 5px #000;
+
+    		&:hover {
+    			background-color: #333;
+    		}
+    		&:focus {
+    			border: 1px solid white;
+    			-webkit-box-shadow: none;
+    			-moz-box-shadow: none;
+    			box-shadow: none;
+    			outline: thin white;
+    		}
+
+    	}
+    }
+}
+
+.pleasescroll .arrowdown {
+	float: left;
+    user-select :none;
+    color: white;
+    margin-right: 10px;
+	text-shadow: 1px 1px 5px #000;
+	font-size: 24px;
+    .ratio_display;
+    text-align: center;
+    width:50px;
+    height:50px;
+    -webkit-animation-delay:0;-webkit-animation-duration:1s;-webkit-animation-name:pleasescroll;-webkit-animation-timing-function:ease-in-out;-webkit-animation-fill-mode:forwards;-webkit-animation-iteration-count:infinite;animation-delay:0;animation-duration:1s;animation-name:pleasescroll;animation-timing-function:ease-in-out;animation-fill-mode:forwards;animation-iteration-count:infinite;-webkit-transition:opacity 0.3s ease-in-out;-moz-transition:opacity 0.3s ease-in-out;-o-transition:opacity 0.3s ease-in-out;transition:opacity 0.3s ease-in-out;opacity:1;cursor:pointer}
+
+.pleasescroll.active {
+    opacity: 0;
+}
+
+@-webkit-keyframes pleasescroll {
+    0% {
+        padding-top: 0px;
+    }
+
+    40% {
+        padding-top: 5px;
+    }
+
+    100% {
+        padding-top: 0px;
+    }
+}
+
+@keyframes pleasescroll {
+    0% {
+        top: 10px;
+    }
+
+    40% {
+        top: 15px;
+    }
+
+    100% {
+        top: 10px;
+    }
+}
+
+
+
+.titre {
+	margin-bottom: 25px;
+}
+
+
+.blocinfo {
+	margin: 50px auto;
+}
+
+.le-projet {
+
+
+
+	.titre {
+
+	}
+
+	.bloc {
+		display: inline-block;
+		vertical-align: top;
+		margin-bottom: 45px;
+	}
+
+	.bloc-demi {
+		width: 50%;
+		padding-right: 25px;
+
+		@media @phone-only {
+			width: 100%;
+			padding-right: 0;
+		}
+
+	}
+	.bloc-plein {
+		width: 100%;
+	}
+
+	.agenda {
+		.leading {
+			color: @clgreen;
+			font-weight: 400;
+		}
+
+
+	}
+
+	.partenaires {
+
+
+		img {
+
+			width: 118px;
+			vertical-align: middle;
+			border: 0px solid black;
+			padding: 5px;
+			transition: padding .4s ease-out;
+
+			&:hover {
+				padding:0px;
+			}
+		}
+	}
+
+
+}
+
+
+
+.journal {
+	.titre {
+
+	}
+
+	.recap {
+		margin-bottom: 45px;
+
+		h3 {
+			&.active {
+				color: @cred;
+			}
+		}
+
+		ol {
+
+			li {
+				h3 {
+					.ratio;
+					margin-bottom: 0;
+				}
+
+
+
+			}
+		}
+
+
+	}
+}
+
+.entries .entry {
+
+
+	position: relative;
+	height: auto;
+	margin: auto;
+	margin-bottom: 0px;
+	z-index: 100;
+
+	.detail-cont {
+		display: block;
+		position: absolute;
+		left:0;
+		width: 100%;
+
+
+		.detail {
+			position: absolute;
+			top:85px;
+			width: 30%;
+			max-width: 400px;
+			min-width: 280px;
+			background-color: white;
+			max-height: 1280px;
+
+			padding:15px 15px 18px 15px;
+			margin:0 10%;
+			margin:0 ~"calc(10% - 15px)";
+			border:1px solid white;
+			z-index: 2;
+
+			@media @phone-only {
+				top:20px;
+				margin:10%;
+				width: 80%;
+			}
+
+			transition:top 1s ease-in-out,  background-color .4s ease-out;
+
+			h3, h4 {
+				margin: 0 0 10px 0;
+				color: #333;
+				transition: margin .4s ease-out, color .6s ease-out;
+			}
+
+			.texte {
+				max-height: 800px;
+
+				p,ul {
+					margin:0;
+					margin-bottom: 10px;
+					transition: margin 1.2s ease-out;
+				}
+
+				opacity: 1;
+				transition: max-height .6s ease-out, opacity .8s ease-out;
+			}
+
+			&.hover_tap {
+				-webkit-user-select: none;
+				-webkit-touch-callout: none;
+			}
+
+			&.fixed {
+				position: fixed;
+				z-index: 1;
+				top:45px;
+				overflow: hidden;
+				background-color: rgba(255,255,255,0);
+
+				@media @phone-only {
+					top: 0;
+				}
+
+				h3, h4 {
+					margin: 0;
+					color: #fff;
+				}
+
+				.texte {
+					max-height: 0;
+					opacity: 0;
+
+					p, ul {
+					margin:0;
+					}
+				}
+
+				&:hover, &.hover_tap {
+					background-color: rgba(255,255,255,1);
+					h3, h4 {
+						margin: 0 0 10px 0;
+						color: #333;
+					}
+					.texte {
+						max-height: 800px;
+						opacity: 1;
+
+						p,ul {
+							margin:0;
+							margin-bottom: 10px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.captures-cont{
+
+		display: block;
+		width: 100%;
+
+		.captures {
+
+			height: 100%;
+
+			img {
+				display: block;
+				max-width: 100%;
+				width: 100%;
+				height: auto;
+			}
+
+
+			// exceptions : type d'upload
+			&.video {
+
+				position: relative;
+				cursor: pointer;
+
+
+				.vimeoplay {
+				    position: absolute;
+				    z-index: 5;
+				    width: 100px;
+				    height: 60px;
+				    left: 45%;
+				    left: ~"calc(50% - 50px)";
+				    top:250px;
+				    top:~"calc(50% - 50px)";
+				    background-image: url(../images/sprites/play-icon-01.png);
+				    background-position-y: 0;
+				    transition: background-position-y .3s
+				}
+
+				&:hover .vimeoplay {
+				    background-position-y: 60px;
+				    transition: background-position-y .1s
+				}
+			}
+
+
+		}
+	}
+
+}
+
+
+
+.footer {
+	margin-bottom: 40px;
+}
+
+
+
+
+
+
