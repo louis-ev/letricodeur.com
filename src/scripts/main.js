@@ -1,3 +1,5 @@
+var $titreProche;
+
 var gotoByScroll = function(section, margintop, callback) {
 	if ($(window).width() >= 992) {
 		var offsetTopPx = section.offset().top - margintop;
@@ -141,8 +143,10 @@ $(document).ready(function() {
 			}
 
 			$(this).attr('id', id);
+			var letemps = $this.data("temps");
 
-			var selector = $('<li class="items ' + id + '"><h3><a href="#' + id + '" data-goto="' + id + '">' + entrytitletext + '</a></h3></li>').appendTo( $("#journal .recap ol") );
+			var selector = $('<li class="items ' + id + '"><h3><a href="#' + id + '" data-goto="' + id + '">' + entrytitletext + '</a></h3></li>').appendTo( $("#journal .recap ol[data-temps="+letemps+"]") );
+
 
 			//console.log("well " + $(this));
 
@@ -158,9 +162,8 @@ $(document).ready(function() {
 		});
 	}
 
-
 	var posScrollPage = window.pageYOffset;
-	var $titreProche = $(".entry .detail-cont").eq(0);
+	$titreProche = $(".entry .detail-cont").eq(0);
 	var $newTitreProche = $titreProche;
 /* 	fixedmenu(posScrollPage); */
 	fsopacity(posScrollPage);
@@ -192,8 +195,19 @@ $(window).load( function() {
 	    slideshow: true,
 	    directionNav: false,
 	    controlNav: true,
+	    slideshowSpeed: 4000,
 	  });
 	} else {
+	}
+
+	$newTitreProche = titreProche( $(".entry .detail-cont"), window.pageYOffset);
+	if ( $titreProche !== $newTitreProche ) {
+		$titreProche = $newTitreProche;
+		$(".entry .detail").removeClass("fixed");
+
+		if ( $titreProche ) {
+			$titreProche.find(".detail").addClass("fixed");
+		}
 	}
 
 });
