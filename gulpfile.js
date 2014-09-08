@@ -6,6 +6,9 @@ var extend = require('node.extend');
 var substituteConfig = require('./substitute-config');
 
 var pho = require('pho-devstack')(gulp, {
+  browserify: {
+    debug: false,          // enable source maps
+  },
   imagemin: {
     enabled: false
   },
@@ -15,7 +18,7 @@ var pho = require('pho-devstack')(gulp, {
       return "<script>document.write('<script src=\"http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1\"></' + 'script>')</script>";
     }
   }),
-  copy: ['images/sprites/**/*', 'humans.txt', 'scripts/plugins.js']
+  copy: ['images/sprites/**/*', 'humans.txt', 'scripts/plugins.js', 'scripts/jquery-1.10.1.min.js']
 });
 
 // If needed, redefine tasks here

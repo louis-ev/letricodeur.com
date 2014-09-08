@@ -111,7 +111,13 @@ $(document).ready(function() {
 		});
 	});
 
-
+	// lien gotofooter
+	$(".scrolltofooter").click(function(e) {
+		e.preventDefault();
+		$this = $(this);
+		gotoByScroll( $(".footer") , 30, function () {
+		});
+	});
 
 
 
@@ -195,8 +201,12 @@ $(window).load( function() {
 	    slideshow: true,
 	    directionNav: false,
 	    controlNav: true,
-	    slideshowSpeed: 4000,
+	    slideshowSpeed: 6000,
+	    after: function() {
+
+	    }
 	  });
+
 	} else {
 	}
 
