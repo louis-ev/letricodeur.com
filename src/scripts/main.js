@@ -1,4 +1,5 @@
 var $titreProche;
+var $viewport = $('html, body');
 
 var gotoByScroll = function(section, margintop, callback) {
 	if ($(window).width() >= 992) {
@@ -187,6 +188,15 @@ $(document).ready(function() {
 
 			if ( $titreProche ) {
 				$titreProche.find(".detail").addClass("fixed");
+
+				if ($viewport.is(':animated')) {
+					console.log( "animated");
+					return;
+				}
+				$titreProche.siblings(".captures-cont").find("img").each( function() {
+					console.log("imgs");
+					$(this).attr("src", $(this).attr("data-src") );
+				});
 			}
 		}
 	});
