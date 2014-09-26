@@ -1,5 +1,6 @@
 var $titreProche;
 var $viewport = $('html, body');
+var loadAllImages = false;
 
 var gotoByScroll = function(section, margintop, callback) {
 	if ($(window).width() >= 992) {
@@ -81,11 +82,23 @@ $(document).ready(function() {
 		gotoByScroll( $(".blocinfo").eq(0) , 40, function() {} );
 	});
 
+	$(".scrollToBloc").on("click", function(e) {
+		e.preventDefault();
+		gotoByScroll( $(".bloc" + "#" + $(this).data("goto"))  , 40, function() {} );
+	});
+
 	$(".titre").each(function () {
 
+
 		var $this = $(this);
+
+		if ( $this.data("index") === undefined) {
+			return;
+		}
+
+
 		var $entrytitle = $this;
-		var entrytitletext = $entrytitle.text();
+		var entrytitletext = $entrytitle.data("index");
 
 		//$("#journal .recap ol").append("<li><h3>"+ entrytitletext + "</h3></li>");
 
@@ -193,10 +206,15 @@ $(document).ready(function() {
 					console.log( "animated");
 					return;
 				}
-				$titreProche.siblings(".captures-cont").find("img").each( function() {
-					console.log("imgs");
-					$(this).attr("src", $(this).attr("data-src") );
-				});
+
+				if ( loadAllImages === false ) {
+					$titreProche.parents(".entries").find(".captures-cont img").each( function() {
+						console.log("loaded-all-images");
+						loadAllImages = true;
+						$(this).attr("src", $(this).attr("data-src") );
+						$(this).removeAttr("data-src");
+					});
+				}
 			}
 		}
 	});
@@ -227,6 +245,15 @@ $(window).load( function() {
 
 		if ( $titreProche ) {
 			$titreProche.find(".detail").addClass("fixed");
+
+			if ( loadAllImages === false ) {
+				$titreProche.parents(".entries").find(".captures-cont img").each( function() {
+					console.log("loaded-all-images");
+					loadAllImages = true;
+					$(this).attr("src", $(this).attr("data-src") );
+					$(this).removeAttr("data-src");
+				});
+			}
 		}
 	}
 

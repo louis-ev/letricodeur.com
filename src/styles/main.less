@@ -48,7 +48,7 @@
 .ratio_display {
 	font-family: "ratio-display",sans-serif;
 	font-style: normal;
-	font-weight: 700;
+	font-weight: 400;
 	letter-spacing: 0.2px;
 }
 .ratio_display_bold {
@@ -125,7 +125,7 @@ h3 {
 
 	position: relative;
 	z-index: 1;
-	box-shadow: inset 0 0 150px -30px #000;
+	box-shadow: inset 0 -50px 130px -30px #000;
 	overflow: hidden;
 
 	.full-height {
@@ -169,12 +169,6 @@ h3 {
     -webkit-animation-name:moveslides;
     -webkit-animation-timing-function:ease-in-out;
     -webkit-animation-iteration-count:infinite;
-    animation-delay:0;
-    animation-duration:12s;
-	animation-direction:alternate;
-    animation-name:moveslides;
-    animation-timing-function:ease-in-out;
-    animation-iteration-count:infinite;
 
 	transition: opacity 2s ease-in-out, transform 2s linear;
 }
@@ -323,6 +317,10 @@ h2 {
 ul {
 	list-style-type: circle;
 	padding-left: 20px;
+
+	ul {
+		list-style-type: disc;
+	}
 }
 
 
@@ -364,6 +362,73 @@ ul {
 		}
 	}
 
+	.annonce {
+
+		padding:10px 15px;
+		padding-top: 8px;
+		margin-left: -15px;
+		margin-top: 15px;
+		max-width: 600px;
+		background-image: url("../images/sprites/trame-noir.png");
+		background-color: rgba(0,0,0,.4);
+		text-shadow: 1px 1px 5px rgba( 51,51,51, 1);
+		transition: background-color 1s ease-out;
+
+		&:hover {
+			background-color: rgba(0,0,0,1);
+			-webkit-transition: background-color 1s;
+			-moz-transition: background-color 1s;
+			-ms-transition: background-color 1s;
+			-o-transition: background-color 1s;
+			transition: background-color 1s;
+		}
+
+		h2 {
+			.ratio_bold;
+			color: #fff;
+			font-size: 22px;
+			margin: 0;
+
+			@media @phone-only {
+				font-size: 16px;
+			}
+
+		}
+
+
+	}
+
+	.annonce-workshop {
+		border: 1px solid @cyello;
+
+		h2 {
+			a {
+				color: @cyello;
+				border-bottom-color: @cyello;
+
+				&:hover {
+					color: #fff;
+				}
+			}
+		}
+
+	}
+
+	.annonce-intervention {
+		border: 1px solid @clgreen;
+
+		h2 {
+			a {
+				color: @clgreen;
+				border-bottom-color: @clgreen;
+
+				&:hover {
+					color: #fff;
+				}
+			}
+		}
+	}
+
 
 }
 
@@ -389,6 +454,10 @@ ul {
 			display: block;
 			&.arrowdown {
 				display: none;
+			}
+
+			h3 {
+				font-size: 14px;
 			}
 
 		}
@@ -499,7 +568,7 @@ ul {
     }
 
     100% {
-		transform: scale(1.02) translate3d(-15px, -10px,0);
+		transform: scale(1.01) translate3d(-15px, -10px,0);
     }
 }
 
@@ -513,7 +582,7 @@ ul {
     }
 
     100% {
-		transform: scale(1.02) translate3d(-15px, -10px,0);
+		transform: scale(1.01) translate3d(-15px, -10px,0);
     }
 }
 
@@ -529,6 +598,16 @@ ul {
 
 .le-projet {
 
+
+
+	.leading {
+		color: @clgreen;
+		font-weight: 400;
+	}
+
+	.txt {
+		margin-bottom: 45px;
+	}
 
 
 	.titre {
@@ -556,10 +635,6 @@ ul {
 	}
 
 	.agenda {
-		.leading {
-			color: @clgreen;
-			font-weight: 400;
-		}
 
 
 	}
@@ -811,6 +886,13 @@ ul {
 				width: 100%;
 				height: auto;
 				min-height: 20%;
+				background-color: #fff;
+				transition: background-color 1s ease-out;
+			}
+
+			img[data-src] {
+				height: 600px;
+				background-color: #eee;
 			}
 
 
