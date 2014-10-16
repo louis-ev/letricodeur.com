@@ -62,8 +62,10 @@ function fsopacity(scrollfromtop) {
 
 		if (percentfromtop > .8 ) {
 			$(".titrePage").addClass("away");
+			$(".flexcontainer .flexslider").removeClass("moveSlides");
 		} else {
 			$(".titrePage").removeClass("away");
+			$(".flexcontainer .flexslider").addClass("moveSlides");
 		}
 
 		if (percentfromtop > .2 ) {
@@ -72,6 +74,33 @@ function fsopacity(scrollfromtop) {
 			$(".pleasescroll").removeClass("active");
 
 		}
+	} else {
+		$(".flexcontainer .flexslider").removeClass("moveSlides");
+	}
+}
+
+function loadNecessaryImages( $newTitreProche ) {
+
+	if ( $newTitreProche.parents(".entry").next().length !== 0 ) {
+		$newTitreProche.parents(".entry").next().prevAll().addBack().find(".captures-cont img").each( function() {
+
+			var thisSrc = $(this).attr("data-src");
+			if ( thisSrc != undefined ) {
+				$(this).attr("src", thisSrc );
+				$(this).removeAttr("data-src");
+			}
+
+		});
+	} else {
+		$newTitreProche.parents(".entries").find(".captures-cont img").each( function() {
+
+			var thisSrc = $(this).attr("data-src");
+			if ( thisSrc != undefined ) {
+				$(this).attr("src", thisSrc );
+				$(this).removeAttr("data-src");
+			}
+
+		});
 	}
 }
 
@@ -84,7 +113,7 @@ $(document).ready(function() {
 
 	$(".scrollToBloc").on("click", function(e) {
 		e.preventDefault();
-		gotoByScroll( $(".bloc" + "#" + $(this).data("goto"))  , 40, function() {} );
+		gotoByScroll( $("#" + $(this).data("goto"))  , 40, function() {} );
 	});
 
 	$(".titre").each(function () {
@@ -195,27 +224,27 @@ $(document).ready(function() {
 
 		$newTitreProche = titreProche( $(".entry .detail-cont"), window.pageYOffset);
 
-		if ( $titreProche !== $newTitreProche ) {
-			$titreProche = $newTitreProche;
-			$(".entry .detail").removeClass("fixed");
 
-			if ( $titreProche ) {
-				$titreProche.find(".detail").addClass("fixed");
+/*
+		console.log( "$newTitreProche" );
+		console.log( $newTitreProche );
+*/
 
-				if ($viewport.is(':animated')) {
-					console.log( "animated");
-					return;
-				}
 
-				if ( loadAllImages === false ) {
-					$titreProche.parents(".entries").find(".captures-cont img").each( function() {
-						console.log("loaded-all-images");
-						loadAllImages = true;
-						$(this).attr("src", $(this).attr("data-src") );
-						$(this).removeAttr("data-src");
-					});
+		if ( $newTitreProche ) {
+
+			if ( $newTitreProche.find(">.detail.fixed").length === 0 ) {
+
+				$(".entry .detail").removeClass("fixed");
+
+				if ( $newTitreProche ) {
+					$newTitreProche.find(">.detail").addClass("fixed");
+
+					loadNecessaryImages( $newTitreProche );
 				}
 			}
+		} else {
+			$(".entry .detail").removeClass("fixed");
 		}
 	});
 });
@@ -239,22 +268,17 @@ $(window).load( function() {
 	}
 
 	$newTitreProche = titreProche( $(".entry .detail-cont"), window.pageYOffset);
-	if ( $titreProche !== $newTitreProche ) {
-		$titreProche = $newTitreProche;
+
+	console.log( $newTitreProche.find(">.detail.fixed").length );
+
+	if ( $newTitreProche.find(">.detail.fixed").length === 0 ) {
+
 		$(".entry .detail").removeClass("fixed");
 
-		if ( $titreProche ) {
-			$titreProche.find(".detail").addClass("fixed");
+		if ( $newTitreProche ) {
+			$newTitreProche.find(".detail").addClass("fixed");
 
-			if ( loadAllImages === false ) {
-				$titreProche.parents(".entries").find(".captures-cont img").each( function() {
-					console.log("loaded-all-images");
-					loadAllImages = true;
-					$(this).attr("src", $(this).attr("data-src") );
-					$(this).removeAttr("data-src");
-				});
-			}
+			loadNecessaryImages( $newTitreProche );
 		}
 	}
-
 });

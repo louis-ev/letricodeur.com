@@ -6,13 +6,13 @@ module.exports = {
   keywords: 'knitting, tricot, jacquard, jersey, generative design, creative coding, datavizualisation',
 
   'og:url': 'www.letricodeur.com',
-  'og:image': 'http://letricodeur.com/images/2014-09-05-techniques/tricodeur-techniques-4.jpg',
+  'og:image': 'http://letricodeur.com/images/2014-10-14-workshop/tricodeur-workshop-6.jpg',
   'og:type': 'website',
   'og:site_name': 'Tricodeur - tricot + numérique',
 
   'twitter:title': 'Le Tricodeur',
   'twitter:url': 'www.letricodeur.com',
-  'twitter:image': 'http://letricodeur.com/images/2014-09-05-techniques/tricodeur-techniques-4.jpg',
+  'twitter:image': 'http://letricodeur.com/images/2014-10-14-workshop/tricodeur-workshop-6.jpg',
   'twitter:card': '',
   'twitter:site': '',
   'twitter:creator': ''

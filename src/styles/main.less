@@ -129,7 +129,10 @@ h3 {
 	overflow: hidden;
 
 	.full-height {
+
 		height: 768px;
+		height: 100vh;
+
 		position: relative;
 		max-height: 1400px;
 
@@ -158,7 +161,7 @@ h3 {
 	opacity: 1;
 }
 
-.flexslider .slides img {
+.flexslider.moveSlides .slides img {
 	opacity: .95;
 	width: 100%;
 	height: auto;
@@ -234,9 +237,6 @@ h3 {
 	}
 }
 
-@media @phone-only {
-}
-
 
 .flexslider {
 	border:none;
@@ -257,7 +257,10 @@ h3 {
 	position: absolute;
 	top:0;
 	width: 100%;
+
 	height: 768px;
+	height: 100vh;
+
 	overflow: hidden;
 	background-image: url("../images/sprites/trame-noir.png");
 	background-color: #333;
@@ -268,8 +271,10 @@ h3 {
 	min-height: 400px;
 	max-height: 1400px;
 
+
 	@media @tablet-only {
-		background-image: url("../images/2014-09-05-techniques/tricodeur-techniques-4.jpg");
+
+		background-image: url("../images/2014-10-14-workshop/tricodeur-workshop-6.jpg");
 		background-size: cover;
 		background-position: 50% 50%;
 	}
@@ -439,10 +444,14 @@ ul {
     pointer-events: auto;
     list-style: none;
 	padding: 0;
+	margin-bottom: 10px;
 	width: 100%;
 
     transition: opacity 1s;
 
+    @media @tablet-only {
+		margin-bottom: 20px;
+    }
 
     li {
     	display: inline-block;
@@ -639,7 +648,7 @@ ul {
 
 	}
 
-	.partenaires {
+	.partenaires, .partenaires-ws-res {
 
 
 		img {
@@ -745,7 +754,7 @@ ul {
 		left:0;
 		width: 100%;
 
-		@media @phone-only {
+		@media @tablet-only {
 			position: relative;
 
 			&:first-child .detail {
@@ -785,7 +794,7 @@ ul {
 			border:1px solid white;
 			z-index: 2;
 
-			@media @phone-only {
+			@media @tablet-only {
 				position:relative;
 				margin:0%;
 				top:0;
@@ -801,6 +810,10 @@ ul {
 				margin: 0 0 10px 0;
 				color: #333;
 				transition: margin .4s ease-out, color .6s ease-out;
+
+				@media @tablet-only {
+					margin:0;
+				}
 			}
 
 			.texte {
@@ -810,6 +823,11 @@ ul {
 					margin:0;
 					margin-bottom: 10px;
 					transition: margin 1.2s ease-out;
+
+					@media @tablet-only {
+						margin:0;
+					}
+
 				}
 
 				opacity: 1;
