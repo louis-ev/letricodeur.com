@@ -675,54 +675,6 @@ ul {
 }
 
 
-
-.journal {
-	.titre {
-
-	}
-
-	.recap {
-		margin-top: 15px;
-		margin-bottom: 45px;
-
-		h3 {
-			margin-bottom: 0;
-
-			&.active {
-				color: @cred;
-			}
-		}
-
-		ol {
-			margin-bottom: 15px;
-			li {
-				padding-bottom: 4px;
-
-				ol {
-					list-style: none;
-					padding-left: 0px;
-					padding-top: 4px;
-					margin-left: -20px;
-
-					li {
-						border-left: 1px solid #000;
-						padding-left: 20px;
-					}
-				}
-				h3 {
-					.ratio;
-					margin-bottom: 0;
-				}
-
-
-
-			}
-		}
-
-
-	}
-}
-
 // si no-js
 .entries .entry .detail {
 	position: absolute;
@@ -824,7 +776,7 @@ ul {
 		.description{}
 		ul.pswp-gallery{
 			padding: 0;
-			margin: 20px -10px 0 -10px;
+			margin: 20px -5px 0 -5px;
 			list-style: none;
 			line-height: 0;
 
@@ -833,18 +785,26 @@ ul {
 				position: relative;
 				overflow: hidden;
 
-				margin: 0;
-				height: auto;
+				padding: 5px;
+				height: 0;
 
-				width: 20%;
-				@media @tablet-only{width: calc(100% / 3);}
-				@media @phone-only{width: calc(100% / 2);}
+        @listwidth: 100% / 5;
 
-				&:after{
-					content: "";
-					display: block;
-					padding-top: calc(100% / 1.5);
-				}
+				width: @listwidth;
+        padding-bottom: @listwidth/3 * 2;
+
+				@media @tablet-only{
+          @listwidth: 100% / 3;
+
+          width: @listwidth;
+          padding-bottom: @listwidth/3 * 2;
+        }
+				@media @phone-only{
+          @listwidth: 100% / 2;
+
+          width: @listwidth;
+          padding-bottom: @listwidth/3 * 2;
+        }
 
 				transition:	opacity .4s ease-out;
 
@@ -854,14 +814,10 @@ ul {
 				}
 
 				figure{
-					position: absolute;
-					left: 5px;
-					top: 10px;
-					bottom: 10px;
-					right: 5px;
+
+
 					figcaption{ display:none; }
 					a{
-						position: absolute;
 						border: none!important;
 					}
 					img{
