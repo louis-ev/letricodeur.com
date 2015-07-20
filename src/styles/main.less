@@ -120,7 +120,9 @@ h3 {
 }
 
 
-
+ul li, p {
+  padding-bottom: 15px;
+}
 
 .infobox {
 
@@ -315,10 +317,10 @@ h1 {
 
 h2 {
 	font-family: "ratio-display";
-	font-size: 24px;
-	color: #333333;
-	font-weight: 600;
 
+  font-size: 48px;
+  color: #333;
+  font-weight: 300;
 }
 ul {
 	list-style-type: circle;
@@ -329,6 +331,11 @@ ul {
 	}
 }
 
+.hashedBG {
+		background-image: url("../images/sprites/trame-noir.png");
+		background-color: rgba(0,0,0,.4);
+		text-shadow: 1px 1px 5px rgba( 51,51,51, 1);
+}
 
 .titrePage {
 
@@ -375,9 +382,8 @@ ul {
 		margin-left: -15px;
 		margin-top: 15px;
 		max-width: 600px;
-		background-image: url("../images/sprites/trame-noir.png");
-		background-color: rgba(0,0,0,.4);
-		text-shadow: 1px 1px 5px rgba( 51,51,51, 1);
+
+		.hashedBG;
 		transition: background-color 1s ease-out;
 
 		&:hover {
@@ -632,7 +638,7 @@ ul {
 
 	.bloc-demi {
 		width: 50%;
-		padding-right: 25px;
+		padding-right: 50px;
 
 		@media @phone-only {
 			width: 100%;
@@ -696,7 +702,7 @@ ul {
 	position: relative;
 	margin: auto;
 	height: auto;
-	margin: 50px 0 20px 0;
+	margin: 50px 0 40px 0;
 	overflow: hidden;
 
 	&.loading{ header figure.cover{ opacity: .5; } }
@@ -709,7 +715,7 @@ ul {
 		&:before{
 			content: "";
 			display: block;
-			padding-top: 50%;
+			padding-top: 33%;
 		}
 
 		figure.cover{
@@ -736,11 +742,13 @@ ul {
 				bottom: 15px;
 				left: 15px;
 				padding: 15px;
+				padding-top: 	12px;
 
 				max-width: 80%;
 
 				color: white;
-				background-color: rgba(255, 255, 255, 0);
+
+				.hashedBG;
 				border:1px solid white;
 
 				transition:
@@ -750,7 +758,6 @@ ul {
 				h1{
 					color: inherit;
 					margin: 0;
-					text-transform: capitalize;
 					font-size: 24px;
 					font-weight: 600;
 				}
@@ -766,6 +773,8 @@ ul {
 	&.expand header .title,
 	&:hover header .title,
 	&.hover_tap header .title{
+		background-image: none !important;
+		text-shadow: none !important;
 		background-color: rgba(255,255,255,1) !important;
 		color: #333 !important;
 	}
@@ -783,7 +792,8 @@ ul {
 			li{
 				display: inline-block;
 				position: relative;
-				overflow: hidden;
+				overflow: visible;
+				vertical-align: top;
 
 				padding: 5px;
 				height: 0;
@@ -818,7 +828,9 @@ ul {
 
 					figcaption{ display:none; }
 					a{
-						border: none!important;
+						display: block;
+            border: none!important;
+
 					}
 					img{
 						width: 100%;
