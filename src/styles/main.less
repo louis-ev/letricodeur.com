@@ -795,13 +795,16 @@ ul {
 				overflow: visible;
 				vertical-align: top;
 
-				padding: 5px;
-				height: 0;
+				border: 2px solid white;
+  			height: 0;
 
         @listwidth: 100% / 5;
 
 				width: @listwidth;
         padding-bottom: @listwidth/3 * 2;
+        padding-bottom: ~"calc(" @listwidth/3 * 2~" - 2px)";
+        overflow: hidden;
+
 
 				@media @tablet-only{
           @listwidth: 100% / 3;
@@ -820,7 +823,7 @@ ul {
 
 				&:hover, &.hover_tap{
 					cursor: zoom-in;
-					opacity: 0.7;
+
 				}
 
 				figure{
